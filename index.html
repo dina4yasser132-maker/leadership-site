@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Together We Build Tomorrow | Leadership Program</title>
+  <style>
+    :root {
+      --primary: #c02b2b;
+      --secondary: #d43f3a;
+      --gray: #555555;
+      --light-gray: #f8f9fa;
+      --white: #ffffff;
+      --star-yellow: #ffd700;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--gray);
+      background: var(--light-gray);
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    section {
+      padding: 60px 0;
+    }
+    h1, h2, h3 {
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    .logo img {
+      height: 50px;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+    }
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      text-align: center;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffd700' d='M12 2l3.09 6.26L22 9.27l-5 4.88-.9 7.09L12 19l-4.11 2.18-.9-7.09-5-4.88 6.91-1.01L12 2z'/%3E%3C/svg%3E") no-repeat;
+      opacity: 0.3;
+      transform: rotate(45deg);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: var(--white);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    /* About */
+    .about-content {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-image {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .about-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Benefits */
+    .benefits {
+      background: var(--white);
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .benefit-card {
+      background: var(--light-gray);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      text-align: center;
+      border-top: 4px solid var(--primary);
+      transition: transform 0.3s;
+    }
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+    .benefit-card h3 {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--light-gray);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .testimonial {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
+      border-left: 4px solid var(--secondary);
+    }
+    .testimonial::before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      color: var(--star-yellow);
+      opacity: 0.3;
+    }
+    .testimonial-author {
+      font-weight: bold;
+      color: var(--primary);
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* Contact */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .contact-form textarea {
+      height: 120px;
+    }
+    .contact-form button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: var(--secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gray);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 0;
+    }
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .nav-links {
+        display: none; /* For simplicity — add mobile menu later if needed */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="Leadership Logo.png" alt="Leadership Program Logo: Together We Build Tomorrow" />
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#program">Program</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Together We Build Tomorrow</h1>
+      <p>Empower leaders who shape the future through collaboration, vision, and impact.</p>
+      <a href="#contact" class="btn">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Our Leadership Program</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Founded on the belief that true leadership is built through connection and purpose, our program brings together passionate individuals to learn, grow, and lead with integrity.</p>
+          <p>Through mentorship, real-world projects, and community building, we prepare emerging leaders to drive change in their organizations and communities.</p>
+        </div>
+        <div class="about-image">
+          <img src="Leadership Logo.png" alt="Leadership Program Logo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits" class="benefits">
+    <div class="container">
+      <h2>Why Join Us?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Build Real Impact</h3>
+          <p>Lead community initiatives with funding and support.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Mentorship Network</h3>
+          <p>Connect with seasoned leaders across industries.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Certification</h3>
+          <p>Earn a recognized credential upon completion.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Global Community</h3>
+          <p>Become part of a network of changemakers worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2>What Our Alumni Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          “This program gave me the confidence to launch my nonprofit. The mentorship was life-changing.”  
+          <div class="testimonial-author">— Aisha Rahman, Class of 2023</div>
+        </div>
+        <div class="testimonial">
+          “I learned how to lead teams with empathy and strategy. Highly recommend!”  
+          <div class="testimonial-author">— Marcus Lee, Class of 2022</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Join the Movement</h2>
+      <p>Applications are open for our next cohort. Take the first step toward becoming a leader who builds tomorrow.</p>
+      <form class="contact-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Current Role / Institution">
+        <textarea placeholder="Why do you want to join? Tell us your story..."></textarea>
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Together We Build Tomorrow Leadership Program. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Form submission alert (for demo only)
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Your application has been received. We’ll contact you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
