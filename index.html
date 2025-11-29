@@ -246,7 +246,7 @@
         font-size: 2rem;
       }
       .nav-links {
-        display: none; /* For simplicity — add mobile menu later if needed */
+        display: none;
       }
     }
   </style>
@@ -343,11 +343,12 @@
     <div class="container">
       <h2>Join the Movement</h2>
       <p>Applications are open for our next cohort. Take the first step toward becoming a leader who builds tomorrow.</p>
-      <form class="contact-form">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Current Role / Institution">
-        <textarea placeholder="Why do you want to join? Tell us your story..."></textarea>
+      <form action="https://formspree.io/f/xzzlqqjb" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="institution" placeholder="Current Role / Institution">
+        <textarea name="message" placeholder="Why do you want to join? Tell us your story..."></textarea>
+        <input type="hidden" name="_subject" value="New Leadership Program Application">
         <button type="submit">Submit Application</button>
       </form>
     </div>
@@ -369,13 +370,6 @@
           behavior: 'smooth'
         });
       });
-    });
-
-    // Form submission alert (for demo only)
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you! Your application has been received. We’ll contact you soon.');
-      this.reset();
     });
   </script>
 </body>
